@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>718</width>
-    <height>586</height>
+    <width>720</width>
+    <height>539</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -37,37 +37,11 @@
      </rect>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>89</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>文本</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="radioButton_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>70</y>
-      <width>89</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>HEX</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="clearRx">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>90</y>
+      <y>150</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -79,10 +53,10 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>54</width>
-      <height>12</height>
+      <x>20</x>
+      <y>120</y>
+      <width>36</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
@@ -93,7 +67,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>190</y>
+      <y>70</y>
       <width>89</width>
       <height>16</height>
      </rect>
@@ -106,7 +80,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>210</y>
+      <y>90</y>
       <width>89</width>
       <height>16</height>
      </rect>
@@ -118,8 +92,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>170</y>
+      <x>10</x>
+      <y>220</y>
       <width>54</width>
       <height>12</height>
      </rect>
@@ -177,26 +151,6 @@
      <string>打开串口</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="TxCount">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>400</y>
-      <width>81</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="RxCount">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>430</y>
-      <width>81</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
@@ -237,7 +191,7 @@
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>200</y>
+      <y>220</y>
       <width>521</width>
       <height>111</height>
      </rect>
@@ -246,7 +200,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>130</x>
       <y>340</y>
       <width>75</width>
       <height>31</height>
@@ -256,13 +210,66 @@
      <string>发送数据</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>460</y>
+      <width>621</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="RxCount">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>430</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="TxCount">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>400</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <zorder>clearTx</zorder>
+   <zorder>conN</zorder>
+   <zorder>clearRx</zorder>
+   <zorder>label</zorder>
+   <zorder>radioButton_3</zorder>
+   <zorder>radioButton_4</zorder>
+   <zorder>label_2</zorder>
+   <zorder>conB</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label_4</zorder>
+   <zorder>Openserialbtn</zorder>
+   <zorder>TxCount</zorder>
+   <zorder>RxCount</zorder>
+   <zorder>label_5</zorder>
+   <zorder>label_6</zorder>
+   <zorder>textEdit</zorder>
+   <zorder>textEdit_2</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>TxCount</zorder>
+   <zorder>RxCount</zorder>
+   <zorder></zorder>
+   <zorder>lineEdit</zorder>
+   <zorder></zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>718</width>
+     <width>720</width>
      <height>23</height>
     </rect>
    </property>
