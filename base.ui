@@ -155,7 +155,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>410</y>
+      <y>420</y>
       <width>54</width>
       <height>12</height>
      </rect>
@@ -224,7 +224,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>430</y>
+      <y>440</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -234,13 +234,25 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>400</y>
+      <y>410</y>
       <width>81</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <zorder>clearTx</zorder>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>380</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>关闭串口</string>
+    </property>
+   </widget>
    <zorder>conN</zorder>
    <zorder>clearRx</zorder>
    <zorder>label</zorder>
@@ -251,8 +263,6 @@
    <zorder>label_3</zorder>
    <zorder>label_4</zorder>
    <zorder>Openserialbtn</zorder>
-   <zorder>TxCount</zorder>
-   <zorder>RxCount</zorder>
    <zorder>label_5</zorder>
    <zorder>label_6</zorder>
    <zorder>textEdit</zorder>
@@ -260,9 +270,9 @@
    <zorder>pushButton</zorder>
    <zorder>TxCount</zorder>
    <zorder>RxCount</zorder>
-   <zorder></zorder>
    <zorder>lineEdit</zorder>
-   <zorder></zorder>
+   <zorder>clearTx</zorder>
+   <zorder>pushButton_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -289,5 +299,42 @@
   </action>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>sendSerialdata()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>173</x>
+     <y>381</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>273</x>
+     <y>407</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>closeSerial()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>72</x>
+     <y>418</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>247</x>
+     <y>449</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>sendSerialdata()</slot>
+  <slot>closeSerial()</slot>
+ </slots>
 </ui>
