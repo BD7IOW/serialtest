@@ -13,6 +13,7 @@ class mywindows(QtWidgets.QMainWindow, Ui_MainWindow):
         self.RxCount.setText("0")
         self.TxCount.setReadOnly(True)
         self.TxCount.setText("0")
+        self.pushButton.setDisabled(True)
         port_list = list( serial.tools.list_ports.comports() )
         if len( port_list ) <= 0:
            print("The Serial port can't find!")
@@ -28,7 +29,15 @@ class mywindows(QtWidgets.QMainWindow, Ui_MainWindow):
 
             port_serial = port_list_0[0]
 
-            ser = serial.Serial( port_serial, 9600, timeout=60 )
+            ser = serial.Serial(port='COM5',
+                                baudrate=19200,
+                                bytesize=8,
+                                parity='N',
+                                stopbits=1,
+                                timeout=None,
+                                xonxoff=0,
+                                rtscts=0)
+            if ser.isOpen() is True:print("open successfully")
             comname =list(ser.name)
             liststr = "".join(comname)
             print(liststr)
@@ -40,6 +49,24 @@ class mywindows(QtWidgets.QMainWindow, Ui_MainWindow):
         self.textEdit.setText("欢迎使用")
         self.clearRx.clicked.connect(self.textEdit.clear)
         self.clearTx.clicked.connect(self.textEdit_2.clear)
+        self.Openserialbtn.clicked.connect(self.openserial)
+
+
+    def openserial(self):
+         print("open")
+         comport = self.conN.currentText()
+         baud = self.conB.currentText()
+         print(comport,baud)
+         #self.ser.baudrate = 19200
+       #  self.ser.port = 0
+         #self.ser.close()
+        # self.ser.open()
+       #  if self.ser.isOpen() is True:
+          # self.lineEdit.setText("port open successfullly")
+       #  else:self.lineEdit.setText("port open faile")
+
+
+
 if __name__ == '__main__':
     import sys
     app = QtWidgets.QApplication(sys.argv)
