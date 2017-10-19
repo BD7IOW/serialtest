@@ -8,6 +8,8 @@ from PyQt5.QtWidgets import QMessageBox
 class mywindows(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(mywindows,self).__init__()
+        self.ser = serial.Serial()
+        self.ser.timeout = 0.5
         self.setupUi(self)
         self.radioButton_4.setChecked(True)
         self.lineEdit.setReadOnly(True)
@@ -22,11 +24,13 @@ class mywindows(QtWidgets.QMainWindow, Ui_MainWindow):
         self.conN.addItems(self.Port_List())
         self.conB.addItems(BAUDRATES)
         self.textEdit.setText("欢迎使用")
+        #self.conN.currentIndexChanged.connect(self.flashport)
         self.clearRx.clicked.connect(self.textEdit.clear)
         self.clearTx.clicked.connect(self.textEdit_2.clear)
         self.Openserialbtn.clicked.connect(self.openserial)
         self.pushButton.clicked.connect( self.sendSerialdata )
         self.pushButton_2.clicked.connect( self.closeSerial )
+
         # 获取COM号列表
     def Port_List(self):
             Com_List = []
@@ -34,25 +38,38 @@ class mywindows(QtWidgets.QMainWindow, Ui_MainWindow):
             for port in port_list:
                 Com_List.append( port[0] )
             return Com_List
-
+    def flashcom(self):
+        self.conN.clear()
+        self.conN.addItems( self.Port_List() )
     def openserial(self):
         # 打开串口
-           ser = serial.Serial()
-           ser.port = self.conN.currentText()
-           ser.baudrate = self.conB.currentText()
-           ser.bytesize = serial.EIGHTBITS#int( self.SerialDataComboBox.currentText() )
-           ser.parity = serial.PARITY_NONE#ParityValue[0]
-           ser.stopbits = serial.STOPBITS_ONE#int( self.SerialStopBitsComboBox.currentText() )
-           ser.open()
-           print(ser.isOpen())
-           if ser.isOpen() is True:
+        if  self.Port_List():
+           self.ser.port = self.conN.currentText()
+           self.ser.baudrate = self.conB.currentText()
+           self.ser.bytesize = serial.EIGHTBITS#int( self.SerialDataComboBox.currentText() )
+           self.ser.parity = serial.PARITY_NONE#ParityValue[0]
+           self.ser.stopbits = serial.STOPBITS_ONE#int( self.SerialStopBitsComboBox.currentText() )
+           self.ser.open()
+           print(self.ser.isOpen())
+           if self.ser.isOpen() is True:
             self.lineEdit.setText("port open successfullly!!")
             self.pushButton.setDisabled( False )
+            self.Openserialbtn.setDisabled(True)
+        else:
+            self.conN.clear()
+            #self.ser.close()
+            QMessageBox.information(
+            self,
+            "Warnning!",
+            "打开串口失败！(请确认设备连接)",
+            QMessageBox.Yes
+            )
 
     def closeSerial(self):
         print("close")
-        #ser.close()
+        self.ser.close()
         self.pushButton.setDisabled( True )
+        self.Openserialbtn.setDisabled(False)
         self.lineEdit.clear()
     def sendSerialdata(self):
         print("send")
